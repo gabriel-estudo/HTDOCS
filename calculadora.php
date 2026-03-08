@@ -6,6 +6,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $subtracao = $a - $b;
   $multiplicacao = $a * $b;
   $divisao = $a / $b;
+  $potencia = pow($a, $b);
+  $raiz = sqrt($a);
 }
 //  echo 'Resultado: ' . $soma;
 //  http://localhost/daw/soma.php?a=2&b=3
@@ -23,6 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type=submit name="operacao" value='Subtrair'>
     <input type=submit name="operacao" value='Multiplicar'>
     <input type=submit name="operacao" value='Dividir'>
+    <input type=submit name="operacao" value='Potencia'>
+    <input type=submit name="operacao" value='Raiz'>
     <br><br>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -38,6 +42,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           echo '<br>Resultado: ' . $multiplicacao;
         } elseif ($operacao == 'Dividir') {
           echo '<br>Resultado: ' . $divisao;
+        } elseif ($operacao == 'Potencia') {
+          echo '<br>Resultado: ' . $potencia;
+        } elseif ($operacao == 'Raiz') {
+          echo '<br>Resultado: ' . $raiz;
+        }
+
+        if ($b == 0) {
+          echo "Não é possível dividir por zero";
         }
       }
     }
